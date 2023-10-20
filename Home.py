@@ -100,11 +100,11 @@ def get_web_data(url, split_str, end_str):
                 event_info.append((text, link))
         event_info = event_info[2:]
         
-        # Save to CSV
-        with open('events.csv', mode='w', newline='', encoding='utf-8') as file:
-            writer = csv.writer(file)
-            writer.writerow(['Event Info', 'Link'])  # write header
-            writer.writerows(event_info)  # write data rows
+        # # Save to CSV
+        # with open('events.csv', mode='w', newline='', encoding='utf-8') as file:
+        #     writer = csv.writer(file)
+        #     writer.writerow(['Event Info', 'Link'])  # write header
+        #     writer.writerows(event_info)  # write data rows
         
         # Display in Streamlit
         # st.write(event_info)
