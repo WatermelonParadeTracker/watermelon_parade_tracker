@@ -161,9 +161,9 @@ with col1:
 
     # Use st.date_input to allow the user to select a date
     select_state= st.checkbox('State', False)
-
+    default_states = list(set(df['State']))
     if select_state:
-        selected_state = st.selectbox('', df['State'])
+        selected_state = st.selectbox('', default_states)
         # Convert selected_date to pandas datetime format to match the 'Date' column format
 
         # Filter your DataFrame based on the selected date
