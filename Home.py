@@ -18,7 +18,7 @@ with col1:
     update_latest = st.button('Update')
 if update_latest:
     sam_df = get_sam_df()
-    uscpr_df = get_uscpr_df()
+    uscpr_df = get_uscpr_df().dropna()
     sam_df.to_csv('data/sam_df.csv')
     uscpr_df.to_csv('data/uscpr_df')
 else: 
@@ -27,7 +27,7 @@ else:
         uscpr_df = pd.read_csv('data/uscpr_df.csv')
     except:
         sam_df = get_sam_df()
-        uscpr_df = get_uscpr_df()
+        uscpr_df = get_uscpr_df().dropna()
         sam_df.to_csv('data/sam_df.csv')
         uscpr_df.to_csv('data/uscpr_df')
 
