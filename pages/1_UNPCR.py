@@ -11,7 +11,8 @@ st.set_page_config(layout='wide')
 st.title('Watermelon Parade Tracker')
 col1, col2 = st.columns([1, 7])
 
-df = get_uscpr_df()
+df = get_uscpr_df().dropna(axis = 0)
+st.write(df)
 # Use st.date_input to allow the user to select a date
 with col1:
     st.subheader('Filters')

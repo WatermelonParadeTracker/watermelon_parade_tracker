@@ -48,7 +48,7 @@ def get_uscpr_df():
     from utils.mapping import add_loc, create_map
 
     url_default = "https://uscpr.org/oct-2023-protests"
-    split_str_default = 'Join a protest'
+    split_str_default = 'Join a Protest'
     end_str_default = 'Know a protest'
 
     event_info = get_uscpr_web_data(url_default, split_str_default, end_str_default)

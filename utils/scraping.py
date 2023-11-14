@@ -12,13 +12,23 @@ import datetime
 @st.cache_data
 def split_event_info(event):
     text, link = event
-    
-    location, event = (text.split(':')[0], text.split(':')[1])
+    # st.write(event)
+    try:
+        location, event = (text.split(':')[0], text.split(':')[1])
+    except:
+        try:
+            location, event = (text.split('|')[0], text.split('|')[1])
+        except:
+            location, event = None, None
+
     try:
         city, state = location.split(',')
     except:
         city, state = (location, location)
-    date = event.split(',')[0]
+    try:
+        date = event.split(',')[0]
+    except:
+        date = None
     try: 
         rest = event.split(',')[1]
         try:
@@ -46,6 +56,7 @@ def get_uscpr_web_data(url, split_str, end_str):
     # st.write(soup.contents)
 
     html_str = str(soup)
+    # st.write(html_str)
 
     # Find the indices of your markers
     start_idx = html_str.find(split_str)
